@@ -1,14 +1,22 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Field, ObjectType, Int } from "type-graphql";
 
+@ObjectType()
 @Entity("cat")
-export class CatEntity {
-  @PrimaryGeneratedColumn("uuid") id: string;
+export class Cat {
+  @Field()
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
+  @Field()
   @Column("varchar", { length: 500, unique: true })
   name: string;
 
+  @Field()
   @Column("varchar", { length: 500 })
   type: string;
 
-  @Column("numeric") pokedex: number;
+  @Field(type => Int)
+  @Column("numeric")
+  pokedex: number;
 }

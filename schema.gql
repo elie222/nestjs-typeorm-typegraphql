@@ -3,23 +3,23 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type CreateCatDto {
+type Cat {
   id: String!
   name: String!
   type: String!
-  pokedex: Float!
+  pokedex: Int!
 }
 
-input inputCat {
+input CreateCatInput {
   name: String!
   type: String!
   pokedex: Float!
 }
 
 type Mutation {
-  createCat(data: inputCat!): CreateCatDto!
+  createCat(data: CreateCatInput!): Cat!
 }
 
 type Query {
-  cats: [CreateCatDto!]!
+  cats: [Cat!]!
 }
